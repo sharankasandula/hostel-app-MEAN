@@ -74,7 +74,7 @@ var custModel = new Schema({
             contact:Number
         }
     ],
-    guadians:[
+    guardians:[
         {
             name:String,
             relation:String,

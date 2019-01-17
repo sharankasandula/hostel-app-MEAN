@@ -98,7 +98,7 @@ var stub = function (app) {
                    contact: 123242123123
                },
            ],
-           guadians: [
+           guardians: [
                {
                    name: "Hab",
                    relation: "Home",
