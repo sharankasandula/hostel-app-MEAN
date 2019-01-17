@@ -6,9 +6,9 @@ var cust = require('../model/custModel');
 
 var apiController = function (app) {
 
+    // get all customers on home page
     var customers=[];
-    
-    app.get('/home', function (req, res) {
+    app.get('/api/home', function (req, res) {
         cust.find({}, function (err, custs) {
             if (err) {
                 throw err;
@@ -19,8 +19,23 @@ var apiController = function (app) {
             }]);
             res.send(customers)
         });
-
     });
+
+    // get single customer
+    app.get('/api/customer/:id', function (req, res) {
+        console.log('------------------------------------');
+        console.log(req.params);
+        console.log('------------------------------------');
+        cust.findOne({_id:req.params.id}, function (err, customer) {
+            if (err) {
+                throw err;
+            }
+            res.send(customer);
+        });
+    });
+
+    
+
 }
 
 module.exports = apiController;
